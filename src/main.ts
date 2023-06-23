@@ -11,8 +11,6 @@ type Logtype = {
 };
 
 function registerModule<T>(name: string, callback: () => T): void {
-  console.log("register", name);
-
   const module = (): any => callback;
   Alpine.data(name, module);
 }
@@ -68,7 +66,8 @@ const classes = {
 Alpine.data("classGenerater", () => ({
   wrapperClasses: "items-start",
   classes: "max-w-md",
-  setClass(event, style, isWrapper = false) {
+  setClass(event: any, style: any, isWrapper = false) {
+    //@ts-ignore
     const propertyValues = classes[style];
     const styleValue = `${style}-${propertyValues[event.target.value]}`;
     if (isWrapper) {
