@@ -1,0 +1,145 @@
+<html>
+  <body class="text-md bg-gray-100" x-data="classGenerater">
+    <div class="wrapper">
+      <div class="flex gap-10 p-4 max-w-4xl mx-auto">
+        <div class="flex w-1/2 flex-col gap-4">
+          <strong>Wrapper styling</strong>
+          <div>
+            Max width:
+            <input
+              type="range"
+              id="volume"
+              name="volume"
+              min="0"
+              max="6"
+              value="6"
+              @input="setClass($event, 'max-w', true)"
+            />
+          </div>
+
+          <div>
+            <div>
+              <strong>Blok align X:</strong>
+              <div>
+                <input
+                  type="radio"
+                  name="alignContent"
+                  value="0"
+                  checked
+                  @input="setClass($event, 'justify', true)"
+                />
+                <label>Left</label>
+                <input
+                  type="radio"
+                  name="alignContent"
+                  value="1"
+                  @input="setClass($event, 'justify', true)"
+                />
+                <label>Center</label>
+                <input
+                  type="radio"
+                  name="alignContent"
+                  value="2"
+                  @input="setClass($event, 'justify', true)"
+                />
+                <label>Right</label>
+              </div>
+            </div>
+            <div>
+              <strong>Blok align Y:</strong>
+              <div>
+                <input
+                  type="radio"
+                  name="alignContentY"
+                  value="0"
+                  checked
+                  @input="setClass($event, 'items', true)"
+                />
+                <label>Top</label>
+                <input
+                  type="radio"
+                  name="alignContentY"
+                  value="1"
+                  @input="setClass($event, 'items', true)"
+                />
+                <label>Center</label>
+                <input
+                  type="radio"
+                  name="alignContentY"
+                  value="2"
+                  @input="setClass($event, 'items', true)"
+                />
+                <label>Bottom</label>
+              </div>
+            </div>
+          </div>
+
+          <strong> Gegenereerde classes: </strong>
+          <span x-text="wrapperClasses"></span>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <strong>Blok styling</strong>
+          <div>
+            Max width:
+            <input
+              type="range"
+              id="volume"
+              name="volume"
+              min="0"
+              max="6"
+              @input="setClass($event, 'max-w')"
+            />
+          </div>
+
+          <div>
+            Font size
+            <input
+              type="range"
+              id="volume"
+              name="volume"
+              min="0"
+              max="5"
+              @input="setClass($event, 'text')"
+            />
+          </div>
+
+          <div>
+            padding X:
+            <input
+              type="range"
+              id="volume"
+              name="volume"
+              min="0"
+              max="5"
+              @input="setClass($event, 'px')"
+            />
+          </div>
+          <div>
+            padding Y:
+            <input
+              type="range"
+              id="volume"
+              name="volume"
+              min="0"
+              max="5"
+              @input="setClass($event, 'py')"
+            />
+          </div>
+
+          <strong> Gegenereerde classes: </strong>
+          <span x-text="classes"></span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex mt-10 h-52 px-4 bg-gray-600 mx-auto"
+      :class="wrapperClasses"
+    >
+      <div class="bg-blue-200 w-full" :class="classes">Content van het blok</div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
